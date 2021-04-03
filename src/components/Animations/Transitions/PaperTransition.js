@@ -35,7 +35,7 @@ const Styledvatar = styled(Paper)`
   `}
 `;
 
-function TransitionHover(props) {
+function PaperTransition(props) {
     return (
         <NoSsr>
             <MuiThemeProvider theme={customTheme}>
@@ -48,4 +48,4 @@ function TransitionHover(props) {
 }
 
 
-export default TransitionHover;
+export default PaperTransition;

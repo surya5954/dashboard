@@ -1,16 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Line } from 'react-chartjs-2';
-import Transitions from '../../Animations/Transitions/Transitions';
-import { data, labels, options, actions } from './config';
-import { Chart } from 'react-chartjs-2';
+import Transitions from '../../Animations/Transitions/PaperTransition';
+import { labels, options } from './config';
+import ErrorComp from '../../ErrorComp/ErrorComp';
 
-
-const LineChart = () => {
-    const chartReference = useRef();
-
+const LineChart = (props) => {
     return (
         <Transitions>
-            <Line data={data} labels={labels} options={options} height={80} />
+            {props.data.error ? <ErrorComp data={props.data.message} /> : null}
+            <Line data={props.data.data} labels={labels} options={options} height={80} />
         </Transitions>
 
 

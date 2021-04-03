@@ -15,7 +15,6 @@ module.exports = {
         return monthsArray.slice(0, data.count);
     },
     numbers: ({ count, max, min }) => {
-        // count max min
         let num_arr = [];
         while (count != 0) {
             num_arr.push(randomNumber(min, max));

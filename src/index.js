@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import StyledEngineProvider from '@material-ui/core/StyledEngineProvider';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StyledEngineProvider injectFirst>
     <App />
-  </React.StrictMode>,
+  </StyledEngineProvider>
+  ,
   document.getElementById('root')
 );
 

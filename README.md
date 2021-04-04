@@ -1,4 +1,4 @@
-# React SPA for Dashboard using ChartJS
+# React SPA for Dashboard using Chart.js
 
 ### Features
 

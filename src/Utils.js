@@ -4,7 +4,7 @@ function randomNumber(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-// 
+// This module is for some generic used function by charts to help populating data and Legends.
 
 module.exports = {
     CHART_COLORS: {

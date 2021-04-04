@@ -1,6 +1,6 @@
 import Utils from '../Utils';
 
-const DATA_COUNT = 7;
+const DATA_COUNT = 5;
 const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
 
 const pieChartService = {
@@ -12,16 +12,20 @@ const pieChartService = {
         return {
             labels: [
                 'Red',
-                'Blue',
-                'Yellow'
+                'Green',
+                'Yellow',
+                'Grey',
+                'Blue'
             ],
             datasets: [{
                 label: 'My First Dataset',
-                data: [300, 50, 100],
+                data: Utils.numbers(NUMBER_CFG),
                 backgroundColor: [
                     'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
+                    'rgb(75, 192, 192)',
+                    'rgb(255, 205, 86)',
+                    'rgb(201, 203, 207)',
+                    'rgb(54, 162, 235)'
                 ],
                 hoverOffset: 4
             }]

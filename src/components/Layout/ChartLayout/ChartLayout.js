@@ -79,7 +79,6 @@ const ChartLayout = () => {
     // Layout for all the chart components 
     // I have used grid view over here with display flex.
 
-
     return (
         <div className="container">
             <div className="grid-1">

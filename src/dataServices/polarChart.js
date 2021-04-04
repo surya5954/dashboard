@@ -1,6 +1,6 @@
 import Utils from '../Utils';
 
-const DATA_COUNT = 7;
+const DATA_COUNT = 5;
 const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
 
 const polarChartService = {
@@ -19,7 +19,7 @@ const polarChartService = {
             ],
             datasets: [{
                 label: 'My First Dataset',
-                data: [11, 16, 7, 3, 14],
+                data: Utils.numbers(NUMBER_CFG),
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                     'rgb(75, 192, 192)',

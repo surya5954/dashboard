@@ -19,6 +19,8 @@ const customTheme = createMuiTheme({
 // background-color: ${theme.palette.primary.main};
 // background-color: ${theme.palette.secondary.main};
 
+// We are explicity doing this for Paper component on Material UI 
+// We can also optimize to use for any component passed by writing a Higher Order Component 
 const Styledvatar = styled(Paper)`
   ${({ theme }) => `
   cursor: pointer;
@@ -34,6 +36,9 @@ const Styledvatar = styled(Paper)`
   }
   `}
 `;
+
+// This Component is to add Animation paper on which Chart will be drawn 
+// We can use this for any other component as well.
 
 function PaperTransition(props) {
     return (

@@ -9,7 +9,8 @@ import Settings from '@material-ui/icons/Settings';
 import Message from '@material-ui/icons/Message';
 import List from '@material-ui/core/List';
 
-
+// An Object to supply menuItems to Drawer Component
+// You can add title and icon from here 
 const menuItems = [
     {
         title: "Dashboard",
@@ -33,7 +34,8 @@ const menuItems = [
     }
 ]
 
-const MenuItems = () => {
+// In props we can pass the onClick handler from parent component to load respective view component on click
+const MenuItems = (props) => {
     return (
         <div>
             <List>

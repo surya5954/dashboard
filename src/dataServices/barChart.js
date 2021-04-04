@@ -7,32 +7,28 @@ const barChartService = {
     getData: async () => {
         // This is an async function, 
         // you can write an API call with await here to get data from service
+
+        // For testing on error in consuming data API we can throw an error from here.
         // throw new Error();
         return {
             labels: Utils.months({ count: 7 }),
-            datasets: [{
-                label: 'My First Dataset',
-                data: Utils.numbers(NUMBER_CFG),
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 205, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(201, 203, 207, 0.2)'
-                ],
-                borderColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(255, 159, 64)',
-                    'rgb(255, 205, 86)',
-                    'rgb(75, 192, 192)',
-                    'rgb(54, 162, 235)',
-                    'rgb(153, 102, 255)',
-                    'rgb(201, 203, 207)'
-                ],
-                borderWidth: 1
-            }]
+            datasets: [
+                {
+                    label: 'Dataset 1',
+                    data: Utils.numbers(NUMBER_CFG),
+                    backgroundColor: Utils.CHART_COLORS.red,
+                },
+                {
+                    label: 'Dataset 2',
+                    data: Utils.numbers(NUMBER_CFG),
+                    backgroundColor: Utils.CHART_COLORS.blue,
+                },
+                {
+                    label: 'Dataset 3',
+                    data: Utils.numbers(NUMBER_CFG),
+                    backgroundColor: Utils.CHART_COLORS.green,
+                },
+            ]
         };
     }
 }

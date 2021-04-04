@@ -7,16 +7,25 @@ const lineChartService = {
     getData: async () => {
         // This is an async function, 
         // you can write an API call with await here to get data from service
+        // For testing on error in consuming data API we can throw an error from here.
         // throw new Error();
         return {
             labels: Utils.months({ count: 7 }),
             datasets: [{
                 label: 'My First Dataset',
-                data: [65, 59, 80, 81, 56, 55, 40],
+                data: Utils.numbers(NUMBER_CFG),
                 fill: false,
-                borderColor: 'rgb(75, 192, 192)',
+                borderColor: Utils.CHART_COLORS.red,
                 tension: 0.1
-            }]
+            },
+            {
+                label: 'Dataset 2',
+                data: Utils.numbers(NUMBER_CFG),
+                fill: false,
+                borderColor: Utils.CHART_COLORS.blue,
+                tension: 0.1
+            }
+            ]
         };
     }
 }

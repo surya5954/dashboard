@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import './ChartLayout.css';
+// All data service imports 
 import barChartService from '../../../dataServices/barChart';
 import lineChartService from '../../../dataServices/lineChart';
 import pieChartService from '../../../dataServices/pieChart';
 import polarChartService from '../../../dataServices/polarChart';
 import radarChartService from '../../../dataServices/radarChart';
 import stackedChartService from '../../../dataServices/stackedChart';
-
+// All view component imports
 import LineChart from '../../Charts/LineChart/LineChart';
 import BarChart from '../../Charts/BarChart/BarChart';
 import PieChart from '../../Charts/PieChart/PieChart';
@@ -14,63 +15,76 @@ import PolarChart from '../../Charts/PolarChart/PolarChart';
 import RadarChart from '../../Charts/RadarChart/RadarChart';
 import StackedChart from '../../Charts/StackedChart/StackedChart';
 
-const ChartLayout = () => {
-    const [barChartData, setBarChartData] = useState({ data: [], error: false, message: "" });
-    const [lineChartData, setLineChartData] = useState({ data: [], error: false, message: "" });
-    const [pieChartData, setPieChartData] = useState({ data: [], error: false, message: "" });
-    const [polarChartData, setPolarChartData] = useState({ data: [], error: false, message: "" });
-    const [radarChartData, setRadarChartData] = useState({ data: [], error: false, message: "" });
-    const [stackedChartData, setStackedChartData] = useState({ data: [], error: false, message: "" });
+// This is the main component to get data from service and populate them in view
 
+const ChartLayout = () => {
+    // States for all Chart components initalize with empty and error false
+
+    const [barChartData, setBarChartData] = useState([]);
+    const [lineChartData, setLineChartData] = useState([]);
+    const [pieChartData, setPieChartData] = useState([]);
+    const [polarChartData, setPolarChartData] = useState([]);
+    const [radarChartData, setRadarChartData] = useState([]);
+    const [stackedChartData, setStackedChartData] = useState([]);
+
+    // The side effect of this component to call all the data service API and set the value in respective State
     useEffect(() => {
         getChartDataFromService();
     }, [])
 
+    // This function is for calling data service API and error handling 
+    // Since All charts are independent so I have called the asynchronus
+    // All service have a getData function in it. 
+    // On Error data is set to empty and Error is handle on Empty data set by the component itself 
     const getChartDataFromService = () => {
         barChartService.getData()
             .then((data) => {
-                setBarChartData({ data: data, error: false, message: "" });
+                setBarChartData(data);
             }).catch((err) => {
-                setBarChartData({ data: [], error: true, message: "Unable to load data..." });
+                setBarChartData([]);
             })
         lineChartService.getData()
             .then((data) => {
-                setLineChartData({ data: data, error: false, message: "" });
+                setLineChartData(data);
             }).catch((err) => {
-                setLineChartData({ data: [], error: true, message: "Unable to load data..." });
+                setLineChartData([]);
             })
         pieChartService.getData()
             .then((data) => {
-                setPieChartData({ data: data, error: false, message: "" });
+                setPieChartData(data);
             }).catch((err) => {
-                setPieChartData({ data: [], error: true, message: "Unable to load data..." });
+                setPieChartData([]);
             })
         polarChartService.getData()
             .then((data) => {
-                setPolarChartData({ data: data, error: false, message: "" });
+                setPolarChartData(data);
             }).catch((err) => {
-                setPolarChartData({ data: [], error: true, message: "Unable to load data..." });
+                setPolarChartData([]);
             })
         radarChartService.getData()
             .then((data) => {
-                setRadarChartData({ data: data, error: false, message: "" });
+                setRadarChartData(data);
             }).catch((err) => {
-                setRadarChartData({ data: [], error: true, message: "Unable to load data..." });
+                setRadarChartData([]);
             })
         stackedChartService.getData()
             .then((data) => {
-                setStackedChartData({ data: data, error: false, message: "" });
+                setStackedChartData(data);
             }).catch((err) => {
-                setStackedChartData({ data: [], error: true, message: "Unable to load data..." });
+                setStackedChartData([]);
             })
     }
+
+    // This has all the magic !!
+    // Layout for all the chart components 
+    // I have used grid view over here with display flex.
 
 
     return (
         <div className="container">
             <div className="grid-1">
                 <div className="grid-item grid-item-1"><PieChart data={pieChartData} /></div>
-                <div className="grid-item grid-item-2"><BarChart data={barChartData} /></div>
+                <div className="grid-item grid-item-2"><PieChart data={pieChartData} /></div>
                 <div className="grid-item grid-item-3"><PieChart data={pieChartData} /></div>
                 <div className="grid-item grid-item-4"><StackedChart data={stackedChartData} /></div>
                 <div className="grid-item-5">

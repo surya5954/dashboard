@@ -14,11 +14,15 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import MenuItems from '../MenuItems/MenuItems';
 
 
+// This is drwer Component from Material UI
+// This component import MenuItems to show menu
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        display: 'flex'
+        display: 'flex',
+
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
@@ -76,8 +80,11 @@ const useStyles = makeStyles((theme) => ({
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
+        width: '80%'
     },
 }));
+
+// This component recieves Title and Content in props
 
 export default function MiniDrawer(props) {
     const classes = useStyles();
@@ -114,8 +121,8 @@ export default function MiniDrawer(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Dashboard
-          </Typography>
+                        {props.title}
+                    </Typography>
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -142,7 +149,7 @@ export default function MiniDrawer(props) {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-                    {props.content}
+                {props.content}
             </main>
         </div>
     );

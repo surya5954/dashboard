@@ -7,6 +7,7 @@ const stackedChartService = {
     getData: async () => {
         // This is an async function, 
         // you can write an API call with await here to get data from service
+        // For testing on error in consuming data API we can throw an error from here.
         // throw new Error();
         return {
             labels: Utils.months({ count: 7 }),
